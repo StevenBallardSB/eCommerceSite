@@ -38,7 +38,7 @@ namespace eCommerce
             // Register DB Context
             services.AddDbContext<GameContext>
             (
-                options => options.UseSqlServer("con string")
+                options => options.UseSqlServer(connection)
             );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
