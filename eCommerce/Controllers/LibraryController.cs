@@ -17,12 +17,21 @@ namespace eCommerce.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
+        [HttpGet] 
+        public async Task<IActionResult> Index(int? id)
         {
-            List<VideoGame> allGames = await VideoGameDb.GettAllGames(_context);
+            // Null-coalescing operator
+            // If id is not null set page to it, or if null use 1
+            int page = id ?? 1; //id is the page number coming in
+            const int PageSize = 3;
 
-            return View(allGames);
+            List<VideoGame> games = await VideoGameDb.GetGameByPage(_context, page, PageSize);
+
+            int totalPages = await VideoGameDb.GetTotalPages(_context, PageSize);
+            ViewData["Pages"] = totalPages;
+            ViewData["CurrentPage"] = page;
+
+            return View(games);
         }
 
         [HttpGet]
