@@ -64,7 +64,7 @@ namespace eCommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                await VideoGameDb.UpdateGame(g);
+                await VideoGameDb.UpdateGame(g, _context);
                 return RedirectToAction("Index");
             }
 
