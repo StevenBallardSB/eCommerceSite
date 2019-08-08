@@ -11,6 +11,9 @@ namespace eCommerce.Models
     /// </summary>
     public class Member
     {
+        [Key]
+        public int MemberId { get; set; }
+
         /// <summary>
         /// The users full name
         /// </summary>
