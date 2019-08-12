@@ -6,25 +6,30 @@
 <h1>Add a new game</h1>
 
 <form method="post" asp-action="">
-    <label asp-for="Title"></label>
-    <input asp-for="Title" />
-    <span asp-validation-for="Title"></span>
+    <div class="form-row">
+        <div class="col">
+            <input asp-for="Title" class="form-control" placeholder="Title" />
+            <span asp-validation-for="Title"></span>
+        </div>
+
+        <div class="col">
+            <input asp-for="Rating" class="form-control" placeholder="Rating" />
+            <span asp-validation-for="Rating"></span>
+        </div>
+
+    </div>
     <br />
 
-    <label asp-for="Rating"></label>
-    <input asp-for="Rating" />
-    <span asp-validation-for="Rating"></span>
-    <br />
-
-    <label asp-for="Description"></label>
-    <input asp-for="Description" />
+    <input asp-for="Description" class="form-control" placeholder="Description" />
     <span asp-validation-for="Description"></span>
     <br />
-
-    <label asp-for="Price"></label>
-    <input asp-for="Price" />
-    <span asp-validation-for="Price"></span>
-    <br /> 
+    <div class="form-row">
+        <div>
+            <input asp-for="Price" class="form-control" placeholder="Price" />
+            <span asp-validation-for="Price"></span>
+        </div>
+    </div>
+    <br />
     <input type="submit" value="Add Game" />
 </form>
 
