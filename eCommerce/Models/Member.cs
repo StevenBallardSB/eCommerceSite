@@ -36,7 +36,7 @@ namespace eCommerce.Models
         /// </summary>
         [Required]
         [StringLength(20)]
-        [RegularExpression(@"^[\d\w}+$", ErrorMessage = "Usernames can only contain A-Z, 0-9, and underscores")]
+        [RegularExpression(@"^[\d\w]+$", ErrorMessage = "Usernames can only contain A-Z, 0-9, and underscores")]
         public string Username { get; set; }
 
         /// <summary>
