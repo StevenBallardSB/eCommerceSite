@@ -9,6 +9,7 @@ and log in.
 
 ## Getting started
 - Have a copy of Visual Studio 2017+ with ASP.NET MVC and Entity Framework Core
+- Clone this repository onto your computer
 - Launch Visual Studio
 - At the top of the Visual Studio Editor, to run the website click the IIS Express button
 
