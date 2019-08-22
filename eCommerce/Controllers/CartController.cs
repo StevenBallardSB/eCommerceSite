@@ -42,5 +42,11 @@ namespace eCommerce.Controllers
 
             //_httpAccessor.HttpContext.Response.Cookies.Append("CartCookie", data, options);
         }
+
+        public IActionResult Checkout()
+        {
+            List<VideoGame> games = CartHelper.GetGames(_httpAccessor);
+            return View(games);
+        }
     }
 }
