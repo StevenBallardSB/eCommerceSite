@@ -19,5 +19,10 @@ namespace eCommerce.Models
         [Display(Name = "Maximum Price")]
         [Range(0, double.MinValue, ErrorMessage = "The maximum price must be a postivie number")]
         public double? MaxPrice { get; set; }
+
+        /// <summary>
+        /// all VideoGames found using the search criteria
+        /// </summary>
+        public List<VideoGame> Games { get; set; }
     }
 }
