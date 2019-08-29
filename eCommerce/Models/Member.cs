@@ -52,6 +52,7 @@ namespace eCommerce.Models
         /// </summary>
         [Display(Name = "Date of birth")]
         [DataType(DataType.Date)]
+        [DataOfBirth]
         // Make custom attribute in order to do a dynamic range finder.
         // [Required] - It's already required because DateTime is a structure (It's a value type)
         public DateTime DateOfBirth { get; set; }
@@ -69,5 +70,22 @@ namespace eCommerce.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+    }
+
+    public class DataOfBirthAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            Member m = validationContext.ObjectInstance as Member;
+            // Get the value of DateOfBirth for the model
+            DateTime dob = Convert.ToDateTime(value);
+
+            if (dob > DateTime.Today || dob < DateTime.Today.AddYears(-120))
+            {
+                string errMsg = "You cannot be born in the future or more than 120 yrs ago";
+                return new ValidationResult(errMsg);
+            }
+            return ValidationResult.Success;
+        }
     }
 }
