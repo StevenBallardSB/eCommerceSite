@@ -43,6 +43,11 @@
                                 Game Library
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Library" asp-action="Search">
+                                Search Catalog
+                            </a>
+                        </li>
                         @if (SessionHelper.IsUserLoggedIn(sessionData))
                         {
                             <li class="nav-item">
