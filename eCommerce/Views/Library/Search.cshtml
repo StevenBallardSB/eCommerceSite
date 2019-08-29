@@ -38,6 +38,8 @@
     </div>
 </div>
 
+@await Html.PartialAsync("_GameList", Model.GameResults)
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

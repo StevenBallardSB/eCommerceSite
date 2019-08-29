@@ -20,9 +20,27 @@ namespace eCommerce.Controllers
         [HttpGet]
         public async Task<IActionResult> Search(SearchCriteria criteria)
         {
-            criteria.GameResults = await VideoGameDb.Search(_context, criteria);
+            if (ValidSearch(criteria))
+            {
+                criteria.GameResults = await VideoGameDb.Search(_context, criteria);
+            }
 
             return View(criteria);
+        }
+
+        /// <summary>
+        /// Returns true if user searched by at least 1 piece of criteria
+        /// </summary>
+        /// <param name="criteria"></param>
+        /// <returns></returns>
+        private bool ValidSearch(SearchCriteria criteria)
+        {
+            if (criteria.Title == null && criteria.Rating == null && criteria.minPrice == null && criteria.MaxPrice == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         [HttpGet] 
