@@ -20,7 +20,7 @@ namespace eCommerce.Controllers
         [HttpGet]
         public async Task<IActionResult> Search(SearchCriteria criteria)
         {
-            criteria.GameResults = VideoGameDb.Search(_context, criteria);
+            criteria.GameResults = await VideoGameDb.Search(_context, criteria);
 
             return View(criteria);
         }
