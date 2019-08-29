@@ -23,6 +23,6 @@ namespace eCommerce.Models
         /// <summary>
         /// all VideoGames found using the search criteria
         /// </summary>
-        public List<VideoGame> Games { get; set; }
+        public List<VideoGame> GameResults{ get; set; }
     }
 }
